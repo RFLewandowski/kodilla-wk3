@@ -1,6 +1,6 @@
-package gov.newworldorder;
+package gov.newworldorder.Entity;
 
-class Book {
+public class Book {
     private int ID;
     private String title;
     private String author;

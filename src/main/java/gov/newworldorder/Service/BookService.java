@@ -1,6 +1,7 @@
-package gov.newworldorder;
+package gov.newworldorder.Service;
 
 
+import gov.newworldorder.Entity.Book;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -10,7 +11,7 @@ import java.util.Collection;
 public class BookService {
     @Autowired
 
-    private FakeBookDB FakeBookDB;
+    private gov.newworldorder.DAO.FakeBookDB FakeBookDB;
 
     public Collection<Book> getAllBooks(){
         return this.FakeBookDB.getAllBooks();
