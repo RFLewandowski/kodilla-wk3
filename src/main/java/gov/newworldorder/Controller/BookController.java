@@ -1,5 +1,6 @@
 package gov.newworldorder.Controller;
 
+import gov.newworldorder.DAO.RealBookDB;
 import gov.newworldorder.Entity.Book;
 import gov.newworldorder.Service.BookService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,10 +16,19 @@ public class BookController {
 
     @Autowired
     private BookService bookService;
+    private gov.newworldorder.DAO.RealBookDB RealBookDB;
+
 
     @RequestMapping(method = RequestMethod.GET)
     public Collection<Book> getAllBooks() {
         return this.bookService.getAllBooks();
+    }
+
+    @RequestMapping(value = "/db", method = RequestMethod.GET)
+    //only connect with DB no output expected right now
+    public void testDB() {
+
+        RealBookDB.getCurrentSession();
     }
 
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)
