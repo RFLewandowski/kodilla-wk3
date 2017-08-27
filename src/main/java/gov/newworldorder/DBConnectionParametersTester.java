@@ -16,7 +16,7 @@ public class DBConnectionParametersTester {
         dataSource.setPassword("");
         dataSource.getConnection();//this one works
 
-        RealBookDB rb = new RealBookDB();
-        rb.getCurrentSession();//this one throws NPE
+        //RealBookDB rb = new RealBookDB();
+        //rb.getCurrentSession();//this one throws NPE
     }
 }

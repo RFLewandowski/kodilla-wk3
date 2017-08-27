@@ -3,6 +3,7 @@ package gov.newworldorder.Controller;
 import gov.newworldorder.DAO.RealBookDB;
 import gov.newworldorder.Entity.Book;
 import gov.newworldorder.Service.BookService;
+import org.hibernate.Session;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
@@ -16,7 +17,8 @@ public class BookController {
 
     @Autowired
     private BookService bookService;
-    private gov.newworldorder.DAO.RealBookDB RealBookDB;
+    @Autowired
+    private gov.newworldorder.DAO.RealBookDB realBookDB;
 
 
     @RequestMapping(method = RequestMethod.GET)
@@ -28,7 +30,7 @@ public class BookController {
     //only connect with DB no output expected right now
     public void testDB() {
 
-        RealBookDB.getCurrentSession();
+        realBookDB.getCurrentSession();
     }
 
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)

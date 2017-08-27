@@ -19,6 +19,14 @@ public class PersistanceConfig {
         sessionFactory.setPackagesToScan("gov.newworldorder.*");
         sessionFactory.setHibernateProperties(hibernateProperties());
 
+        System.out.println("!!!!!!!!!!!!!!!!!!!!!TEST IN FACTORY");
+        try {
+            System.out.println(sessionFactory.getObject().toString());
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+
         return sessionFactory.getObject();
     }
 
@@ -31,8 +39,6 @@ public class PersistanceConfig {
         dataSource.setPassword("");
         return dataSource;
     }
-
-
 
 //    @Bean
 //    public DriverManagerDataSource restDataSource() {
