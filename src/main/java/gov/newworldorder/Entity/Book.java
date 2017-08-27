@@ -14,10 +14,6 @@ public class Book {
         this.year = year;
     }
 
-
-    public Book() {//dummy
-    }
-
     @Override
     public String toString() {
         return "Book{" +

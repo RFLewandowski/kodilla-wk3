@@ -18,16 +18,6 @@ public class PersistanceConfig {
         sessionFactory.setDataSource(restDataSource());
         sessionFactory.setPackagesToScan("gov.newworldorder.*");
         sessionFactory.setHibernateProperties(hibernateProperties());
-
-        System.out.println("!!!!!!!!!!!!!!!!!!!!!TEST IN FACTORY");
-        try {
-            System.out.println(sessionFactory.equals(null));
-            sessionFactory.getObject();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-
-
         return sessionFactory.getObject();
     }
 
@@ -54,8 +44,8 @@ public class PersistanceConfig {
     private Properties hibernateProperties() {
         Properties properties = new Properties();
         properties.put("hibernate.dialect", "org.hibernate.dialect.MySQLDialect");
-        properties.put("hibernate.show_sql", "true");
-        properties.put("hibernate.format_sql", "true");
+        //properties.put("hibernate.show_sql", "true");
+        //properties.put("hibernate.format_sql", "true");
         return properties;
     }
 }

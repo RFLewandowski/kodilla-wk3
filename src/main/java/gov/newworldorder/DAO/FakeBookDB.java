@@ -4,6 +4,7 @@ package gov.newworldorder.DAO;
 import gov.newworldorder.Entity.Book;
 import org.springframework.stereotype.Repository;
 
+import javax.annotation.PostConstruct;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
@@ -14,7 +15,8 @@ public class FakeBookDB {
 
     private static Map<Integer, Book> books;
 
-    static {
+    @PostConstruct
+    public void init() {
         Book theBook1 = new Book(1, "Assassins' Creed the Book", "William Shakespeare", 2016);
         Book theBook2 = new Book(2, "Book of jungle", "Rudyard Kipling", 1894);
         Book theBook3 = new Book(3, "50 shades of gray - lexicon for graphicians", "Dante Alighieri", 1572);

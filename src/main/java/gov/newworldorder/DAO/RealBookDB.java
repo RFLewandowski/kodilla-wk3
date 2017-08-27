@@ -3,10 +3,6 @@ package gov.newworldorder.DAO;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Configurable;
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
-import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -14,12 +10,14 @@ import org.springframework.transaction.annotation.Transactional;
 @Repository
 public class RealBookDB {
 
+    private SessionFactory sessionFactory;
+
     @Autowired
-    SessionFactory sessionFactory;
+    public RealBookDB(SessionFactory sessionFactory) {
+        this.sessionFactory = sessionFactory;
+    }
 
     public Session getCurrentSession() {
-        System.out.println("TEST!!!!!!!!!!!!!");
-        System.out.println("TEST!!!!!!!!!!!!!:"+sessionFactory.toString());
         return sessionFactory.getCurrentSession();
     }
 }

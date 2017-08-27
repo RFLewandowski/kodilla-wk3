@@ -1,6 +1,5 @@
 package gov.newworldorder;
 
-import gov.newworldorder.DAO.RealBookDB;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
 
 import java.sql.SQLException;
@@ -15,8 +14,5 @@ public class DBConnectionParametersTester {
         dataSource.setUsername("root");
         dataSource.setPassword("");
         dataSource.getConnection();//this one works
-
-        //RealBookDB rb = new RealBookDB();
-        //rb.getCurrentSession();//this one throws NPE
     }
 }
