@@ -21,7 +21,8 @@ public class PersistanceConfig {
 
         System.out.println("!!!!!!!!!!!!!!!!!!!!!TEST IN FACTORY");
         try {
-            System.out.println(sessionFactory.getObject().toString());
+            System.out.println(sessionFactory.equals(null));
+            sessionFactory.getObject();
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -53,8 +54,8 @@ public class PersistanceConfig {
     private Properties hibernateProperties() {
         Properties properties = new Properties();
         properties.put("hibernate.dialect", "org.hibernate.dialect.MySQLDialect");
-        // properties.put("hibernate.show_sql", "true");
-        // properties.put("hibernate.format_sql", "true");
+        properties.put("hibernate.show_sql", "true");
+        properties.put("hibernate.format_sql", "true");
         return properties;
     }
 }
