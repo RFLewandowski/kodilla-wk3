@@ -2,6 +2,7 @@ package gov.newworldorder.DAO;
 
 
 import gov.newworldorder.Entity.Book;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Repository;
 
 import javax.annotation.PostConstruct;
@@ -11,7 +12,8 @@ import java.util.Map;
 
 
 @Repository
-public class FakeBookDB {
+@Qualifier("fakeData")
+public class FakeBookDAO implements IBookDAO {
 
     private static Map<Integer, Book> books;
 

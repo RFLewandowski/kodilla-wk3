@@ -1,36 +1,38 @@
 package gov.newworldorder.Service;
 
 
+import gov.newworldorder.DAO.IBookDAO;
 import gov.newworldorder.Entity.Book;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
-import gov.newworldorder.DAO.FakeBookDB;
 
 import java.util.Collection;
 
 @Service
+@Qualifier("fakeData")
 public class BookService {
 
     @Autowired
-    private FakeBookDB fakeBookDB;
+    private IBookDAO bookDAO;
 
     public Collection<Book> getAllBooks() {
-        return this.fakeBookDB.getAllBooks();
+        return this.bookDAO.getAllBooks();
     }
 
     public Book getBookById(int id) {
-        return this.fakeBookDB.getBookById(id);
+        return this.bookDAO.getBookById(id);
     }
 
     public Book removeBookById(int id) {
-        return this.fakeBookDB.removeBookById(id);
+        return this.bookDAO.removeBookById(id);
     }
 
     public Book updateBook(Book Book) {
-        return this.fakeBookDB.updateBook(Book);
+        return this.bookDAO.updateBook(Book);
     }
 
     public Book insertBook(Book Book) {
-        return this.fakeBookDB.insertBook(Book);
+        return this.bookDAO.insertBook(Book);
     }
 }

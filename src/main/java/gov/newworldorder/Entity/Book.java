@@ -1,9 +1,23 @@
 package gov.newworldorder.Entity;
 
-public class Book {
+
+import javax.persistence.*;
+import java.io.Serializable;
+
+@Entity
+@Table(name="books")
+public class Book implements Serializable {
+
+    private static final long serialVersionUID = 1L;
+    @Id
+    @GeneratedValue(strategy= GenerationType.AUTO)
+    @Column(name="ID")
     private int ID;
+    @Column(name="title")
     private String title;
+    @Column(name="author")
     private String author;
+    @Column(name="year")
     private int year;
 
 
