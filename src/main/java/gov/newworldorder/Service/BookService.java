@@ -10,9 +10,9 @@ import org.springframework.stereotype.Service;
 import java.util.Collection;
 
 @Service
-@Qualifier("fakeData")
 public class BookService {
 
+    @Qualifier("fakeData")
     @Autowired
     private IBookDAO bookDAO;
 
