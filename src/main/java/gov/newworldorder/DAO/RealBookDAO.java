@@ -11,6 +11,7 @@ import org.springframework.transaction.annotation.Transactional;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import java.util.Collection;
+import java.util.List;
 import java.util.Map;
 
 @Transactional
@@ -20,10 +21,11 @@ public class RealBookDAO implements IBookDAO {
     @PersistenceContext
     private EntityManager entityManager;
 
+    @SuppressWarnings("unchecked")
     @Override
     public Collection<Book> getAllBooks() {
-        String hql = "FROM Article as atcl ORDER BY atcl.articleId";
-        return (Map<Integer, Book>) entityManager.createQuery(hql).getResultList();
+        String hql = "FROM Book as book ORDER BY book.ID";
+        return (List<Book>) entityManager.createQuery(hql).getResultList();
     }
 
     @Override
@@ -33,16 +35,27 @@ public class RealBookDAO implements IBookDAO {
 
     @Override
     public Book removeBookById(int id) {
+
+        entityManager.remove(getBookById(id));
+
         return null;
     }
 
     @Override
     public Book updateBook(Book newBook) {
+
+        Book originalBook = getBookById(newBook.getID());
+        originalBook.setTitle(newBook.getTitle());
+        originalBook.setAuthor(newBook.getAuthor());
+        originalBook.setYear(newBook.getYear());
+        entityManager.flush();
+
         return null;
     }
 
     @Override
     public Book insertBook(Book book) {
+        entityManager.merge(book);
         return null;
     }
 }

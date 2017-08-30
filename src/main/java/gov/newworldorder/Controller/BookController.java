@@ -16,8 +16,8 @@ public class BookController {
 
     @Autowired
     private BookService bookService;
-    @Autowired
-    private RealBookDAO realBookDAO;
+//    @Autowired
+//    private RealBookDAO realBookDAO;
 
 
     @GetMapping()
@@ -25,11 +25,11 @@ public class BookController {
         return this.bookService.getAllBooks();
     }
 
-    @GetMapping(value = "/db")
-    //only connect with DB no output expected right now
-    public void testDB() {
-        realBookDAO.getCurrentSession();
-    }
+//    @GetMapping(value = "/db")
+//        only connect with DB no output expected right now
+//    public void testDB() {
+//        realBookDAO.getCurrentSession();
+//    }
 
     @GetMapping(value = "/{id}")
     //TODO podpowiadanie parametrów adnotacji w Intelij nie jest zbut pomocne - w Eclipse chyba działało to lepiej

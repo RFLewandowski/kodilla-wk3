@@ -12,7 +12,7 @@ import java.util.Collection;
 @Service
 public class BookService {
 
-    @Qualifier("fakeData")
+    @Qualifier("realData")
     @Autowired
     private IBookDAO bookDAO;
 
