@@ -5,19 +5,19 @@ import javax.persistence.*;
 import java.io.Serializable;
 
 @Entity
-@Table(name="books")
+@Table(name = "books")
 public class Book implements Serializable {
 
     private static final long serialVersionUID = 1L;
     @Id
-    @GeneratedValue(strategy= GenerationType.AUTO)
-    @Column(name="ID")
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "ID")
     private int ID;
-    @Column(name="title")
+    @Column(name = "title")
     private String title;
-    @Column(name="author")
+    @Column(name = "author")
     private String author;
-    @Column(name="year")
+    @Column(name = "year")
     private int year;
 
 

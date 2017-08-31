@@ -38,12 +38,11 @@ public class FakeBookDAO implements IBookDAO {
 
 
     public Collection<Book> getAllBooks() {
-        return this.books.values(); //TODO czemu nie działa return this.getAllBooks() ?
+        return this.books.values();
     }
 
-
     public Book getBookById(int id) {
-        return this.books.get(id); //TODO Intelij nie popdowiedziało books - pewnie dlatego ze są prywatne i nawet tutaj powinno się używać getterów
+        return this.books.get(id);
     }
 
     public Book removeBookById(int id) {

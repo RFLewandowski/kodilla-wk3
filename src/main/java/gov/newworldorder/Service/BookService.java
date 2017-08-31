@@ -12,9 +12,12 @@ import java.util.Collection;
 @Service
 public class BookService {
 
-    @Qualifier("realData")
+    private final IBookDAO bookDAO;
+
     @Autowired
-    private IBookDAO bookDAO;
+    public BookService(@Qualifier("realData") IBookDAO bookDAO) {
+        this.bookDAO = bookDAO;
+    }
 
     public Collection<Book> getAllBooks() {
         return this.bookDAO.getAllBooks();
