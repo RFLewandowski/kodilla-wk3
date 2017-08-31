@@ -55,7 +55,7 @@ public class RealBookDAO implements IBookDAO {
 
     @Override
     public Book insertBook(Book book) {
-        entityManager.persist(book);
+        entityManager.merge(book);
         return null;
     }
 }
