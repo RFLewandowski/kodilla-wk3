@@ -3,14 +3,12 @@ package gov.newworldorder.DAO;
 import gov.newworldorder.Entity.Book;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Repository;
-import org.springframework.transaction.annotation.Transactional;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import java.util.Collection;
 import java.util.List;
 
-@Transactional
 @Repository
 @Qualifier("realData")
 public class RealBookDAO implements IBookDAO {
