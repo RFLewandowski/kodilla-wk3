@@ -1,6 +1,7 @@
 package gov.newworldorder.DAO;
 
 import gov.newworldorder.Entity.Author;
+import jdk.nashorn.internal.objects.annotations.Setter;
 import org.springframework.stereotype.Repository;
 
 import javax.persistence.EntityManager;
@@ -12,6 +13,7 @@ import java.util.List;
 public class RealAuthorDAO {
     @PersistenceContext
     private EntityManager entityManager;
+
 
     @SuppressWarnings("unchecked")
     public Collection<Author> getAllAuthors() {
