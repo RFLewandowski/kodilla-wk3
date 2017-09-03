@@ -16,7 +16,7 @@ public class Book implements Serializable {
     @Column(name = "title")
     private String title;
     @Column(name = "author")
-    private String author;
+    private Author author;
     @Column(name = "year")
     private int year;
 
@@ -24,8 +24,7 @@ public class Book implements Serializable {
     public Book() {
     }
 
-    public Book(int ID, String title, String author, int year) {
-        this.ID = ID;
+    public Book(String title, Author author, int year) {
         this.title = title;
         this.author = author;
         this.year = year;
@@ -57,11 +56,13 @@ public class Book implements Serializable {
         this.title = title;
     }
 
-    public String getAuthor() {
+    @ManyToOne
+    @JoinColumn(name = "author")
+    public Author getAuthor() {
         return author;
     }
 
-    public void setAuthor(String author) {
+    public void setAuthor(Author author) {
         this.author = author;
     }
 
