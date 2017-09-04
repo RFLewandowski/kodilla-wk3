@@ -1,6 +1,7 @@
 package gov.newworldorder.DAO;
 
 
+import gov.newworldorder.Entity.Author;
 import gov.newworldorder.Entity.Book;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Repository;
@@ -19,11 +20,18 @@ public class FakeBookDAO implements IBookDAO {
 
     @PostConstruct
     public void init() {
-        Book theBook1 = new Book(1, "Assassins' Creed the Book", "William Shakespeare", 2016);
-        Book theBook2 = new Book(2, "Book of jungle", "Rudyard Kipling", 1894);
-        Book theBook3 = new Book(3, "50 shades of gray - lexicon for graphicians", "Dante Alighieri", 1572);
-        Book theBook4 = new Book(4, "Book Of Magic", "Merlin", 111);
-        Book theBook5 = new Book(5, "Test book", "Test author", 999);
+
+        Author a1 = new Author("William Shakespeare");
+        Author a2 = new Author("Rudyard Kipling");
+        Author a3 = new Author("Dante Alighieri");
+        Author a4 = new Author("Merlin");
+        Author a5 = new Author("Test author");
+
+        Book theBook1 = new Book(1, "Assassins' Creed the Book", a1, 2016);
+        Book theBook2 = new Book(2, "Book of jungle", a2, 1894);
+        Book theBook3 = new Book(3, "50 shades of gray - lexicon for graphicians", a3, 1572);
+        Book theBook4 = new Book(4, "Book Of Magic", a4, 111);
+        Book theBook5 = new Book(5, "Test book", a5, 999);
 
         books = new HashMap<Integer, Book>() {
             {

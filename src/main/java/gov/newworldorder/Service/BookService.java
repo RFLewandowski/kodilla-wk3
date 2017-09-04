@@ -31,11 +31,11 @@ public class BookService {
         return this.bookDAO.removeBookById(id);
     }
 
-    public Book updateBook(Book Book) {
-        return this.bookDAO.updateBook(Book);
+    public Book updateBook(Book book) {
+        return this.bookDAO.updateBook(book);
     }
 
-    public Book insertBook(Book Book) {
-        return this.bookDAO.insertBook(Book);
+    public Book insertBook(Book book) {
+        return this.bookDAO.insertBook(book);
     }
 }

@@ -21,7 +21,7 @@ public class Book implements Serializable {
     private int year;
 
 
-    public Book() {
+    public Book(int i, String s, Author a1, int i1) {
     }
 
     public Book(String title, Author author, int year) {

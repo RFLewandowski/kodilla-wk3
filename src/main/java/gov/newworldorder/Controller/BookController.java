@@ -1,6 +1,8 @@
 package gov.newworldorder.Controller;
 
+import gov.newworldorder.Entity.Author;
 import gov.newworldorder.Entity.Book;
+import gov.newworldorder.Service.AuthorService;
 import gov.newworldorder.Service.BookService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
@@ -14,10 +16,12 @@ import java.util.Collection;
 public class BookController {
 
     private final BookService bookService;
+    private final AuthorService authorService;
 
     @Autowired
-    public BookController(BookService bookService) {
+    public BookController(BookService bookService, AuthorService authorService) {
         this.bookService = bookService;
+        this.authorService = authorService;
     }
 
     @GetMapping()
@@ -44,4 +48,13 @@ public class BookController {
     public Book insertBook(@RequestBody Book book) {
         return bookService.insertBook(book);
     }
+
+
+    @GetMapping(value = "/authors")
+    public Collection<Author> getAllAuthors() {
+        return this.authorService.getAllAuthors();
+    }
+
+
+
 }
